@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run salahtouil/docker-react npm test -- --coverage
+   
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "Docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-358760487402"
+  bucket_path: "Docker"
+  on:
+    -branch: master
